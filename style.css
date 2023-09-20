@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+
+/* Reset do CSS padrão dos navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* A borda prevalece  */
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url("./assets/bg-mobile.jpg");
+  --border-color: rgba(255, 255, 255, 0.5);
+  --bg-button-hover: rgba(255, 255, 255, 0.05);
+  --bg-button: rgba(255, 255, 255, 0.1);
+  --bg-social-links: rgba(255, 255, 255, 0.02);
+  --switch-bg-url: url("./assets/moon-stars.svg");
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url("./assets/bg-mobile-light.jpg");
+  --bg-button: rgba(0, 0, 0, 0.05);
+  --border-color: rgba(0, 0, 0, 0.5);
+  --bg-button-hover: rgba(0, 0, 0, 0.02);
+  --bg-social-links: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url("./assets/sun.svg");
+}
+
+body {
+  /* Background  */
+  background: var(--bg-url) no-repeat top center/cover;
+
+  /* 
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; 
+  */
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+  /* A altura é fluida então não é bom seta-la antes */
+  width: 360px;
+  margin: 56px auto 0;
+  padding: 0 24px;
+}
+
+/* Profile */
+#profile {
+  /* A propriedade "text-align:" aceita apenas elementos inline */
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 117px;
+  border-radius: 50%;
+  /* height: 117px; */
+  /* geralmente não precisa especificar a altura da imagem */
+  /*
+  "margin: auto;"
+  Em estruturas inline, o margin: auto 
+  n funciona para centralizar elementos
+  */
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 1.5rem;
+  margin-top: 8px;
+}
+
+/* Switch */
+#switch {
+  /* border: 1px solid red; */
+  position: relative;
+  width: 64px;
+
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+
+  /* Posicionamento de imagens com background */
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  /* Centralização de elementos com position */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  transition: border 0.2s;
+}
+
+.light #switch button {
+  width: 32px;
+  height: 32px;
+
+  /* Posicionamento de imagens com background */
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  /* Centralização de elementos com position */
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: initial;
+  z-index: 1;
+  transform: translateY(-50%);
+
+  transition: border 0.2s;
+}
+
+#switch button:hover {
+  border: 2.5px solid var(--border-color);
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background-color: var(--bg-button);
+  border: 1px solid var(--border-color);
+  border-radius: 9999px;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* LINKS */
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1.4rem 0;
+}
+
+ul li a {
+  text-decoration: none;
+
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0.875rem;
+
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  background: var(--bg-button);
+  font-weight: 500;
+
+  /* Pode ser usado para carregar todos os elementos da página */
+  transition: background 0.2s;
+}
+
+/* pseudo-selector */
+ul li a:hover {
+  background: var(--bg-button-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+#social-links {
+  padding: 24px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 1rem; */
+
+  font-size: 24px;
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background-color: var(--bg-social-links);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+
+  font-weight: 400;
+  font-size: 14px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
