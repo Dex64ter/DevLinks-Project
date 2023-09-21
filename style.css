@@ -30,6 +30,7 @@
 body {
   /* Background  */
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 
   /* 
   background-image: url(./assets/bg-mobile.jpg);
@@ -216,4 +217,15 @@ footer {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+/* Media Queries */
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url("./assets/bg-desktop.jpg");
+  }
+
+  .light {
+    --bg-url: url("./assets/bg-desktop-light.jpg");
+  }
 }
