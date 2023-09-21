@@ -62,6 +62,7 @@ body * {
 
 #profile img {
   width: 117px;
+  height: 117px;
   border-radius: 50%;
   /* height: 117px; */
   /* geralmente não precisa especificar a altura da imagem */
@@ -106,32 +107,16 @@ body * {
   transform: translateY(-50%);
 
   transition: border 0.2s;
+
+  animation: slide-out 0.4s;
 }
 
 .light #switch button {
-  width: 32px;
-  height: 32px;
-
-  /* Posicionamento de imagens com background */
-  background: white var(--switch-bg-url) no-repeat center;
-  border: 0;
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  /* Centralização de elementos com position */
-  position: absolute;
-  top: 50%;
-  right: 0;
-  left: initial;
-  z-index: 1;
-  transform: translateY(-50%);
-
-  transition: border 0.2s;
+  animation: slide-in 0.4s forwards;
 }
 
 #switch button:hover {
-  border: 2.5px solid var(--border-color);
+  outline: 8px solid var(--border-color);
 }
 
 #switch span {
@@ -227,5 +212,26 @@ body::-webkit-scrollbar {
 
   .light {
     --bg-url: url("./assets/bg-desktop-light.jpg");
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
   }
 }
